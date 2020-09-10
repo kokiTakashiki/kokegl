@@ -1,0 +1,8 @@
+body {
+  background-color: #1c1d1e;
+  color: #69821b;
+}
+canvas {
+  width: 600px;
+  height: 600px;
+}
