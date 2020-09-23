@@ -1,0 +1,23 @@
+body {
+  background-color: #1c1d1e;
+}
+a {
+  color: #69821b;
+}
+.main {
+  background-color: #1c1d1e;
+  color: #69821b;
+  font-family: 'PT Sans', sans-serif;
+}
+/* ▼キャプション付き画像全体を囲むボックスの装飾 */
+p.imagebox {
+  margin: 0 auto;
+}
+/* ▼キャプションに対する装飾 */
+p.imagebox span.caption {
+  font-size: 25px;
+}
+p.imagebox canvas.mycanvas {
+  display: block;
+  margin: 0 auto;
+}
