@@ -78,6 +78,10 @@ var common = {
 		});
 		$(".caption").css({
 			"font-size": msg.capFont + "px"
+		});
+		$(".studyDay").css({
+			"font-size": msg.capFont + "px",
+			"float": "right"
         });
         $(".mycanvas").css({
             "width": msg.canvasSise + "px",

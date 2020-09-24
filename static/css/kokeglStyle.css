@@ -13,10 +13,6 @@ a {
 p.imagebox {
   margin: 0 auto;
 }
-/* ▼キャプションに対する装飾 */
-p.imagebox span.caption {
-  font-size: 25px;
-}
 p.imagebox canvas.mycanvas {
   display: block;
   margin: 0 auto;
