@@ -45,7 +45,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: './static/shaders/plane_vertex.vs',
+	    url: '../static/shaders/plane_vertex.vs',
 	    async: false,
 	    cache: false,
 	    error: function(jqxhr, status, exception) {
@@ -64,7 +64,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: './static/shaders/fshader.fs',
+	    url: '../static/shaders/fshader.fs',
 	    dataType: 'html',
 	    async: false,
 	    cache: false,
