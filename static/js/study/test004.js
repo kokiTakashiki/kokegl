@@ -1,4 +1,4 @@
-// test003
+// test004
 
 //画面サイズ
 var canvasWidth  = 600;
@@ -18,12 +18,13 @@ camera = new THREE.PerspectiveCamera(
 	10000
   );
   camera.position.set(0, 0, +1000);
+  camera.position.z = 400;
 
-renderer = new THREE.WebGLRenderer({canvas: document.querySelector("#test003Canvas")});
+renderer = new THREE.WebGLRenderer({canvas: document.querySelector("#test004Canvas")});
 renderer.setPixelRatio(window.devicePixelRatio);
 
 //3Dモデル用value
-var geometry, material, sphere, time;
+var geometry, material, plane, time;
 
 //一回だけ呼んで初期化するよー
 init();
@@ -33,7 +34,7 @@ animate();
 //初期化用仕掛けちゃん（ファンクションとかメソッドとか）
 function init(){
 	// Sphere の作成
-    geometry = new THREE.SphereGeometry(250, 250, 250);
+    geometry = new THREE.PlaneGeometry(250, 250);
     
 	//material = new THREE.MeshStandardMaterial({color: 0xFF0000});
 	
@@ -44,18 +45,29 @@ function init(){
 	material = new THREE.MeshStandardMaterial({
 	  map: texture
 	});
+	//material.side = THREE.DoubleSide;
     
-	sphere = new THREE.Mesh(geometry, material);
-	scene.add(sphere);
+	plane = new THREE.Mesh(geometry, material);
+	plane.material.side = THREE.DoubleSide;
+	scene.add(plane);
+
+	// 地面を作成
+	// ground = new THREE.GridHelper(300, 10, 0xffffff, 0xffffff);
+	// //plane.position.y = -1;
+	// scene.add(ground);
 
 	// new THREE.DirectionalLight(色)
 	light = new THREE.DirectionalLight(0xffffff);
-	//light.intensity = 2; // 光の強さを倍に
+	light.intensity = 0.5; 
+	light2 = new THREE.DirectionalLight(0xffffff);
+	light2.intensity = 0.5; 
 	// ライトの位置を変更
 	light.position.set(1, 1, 1);
+	light2.position.set(-1, -1, 1);
 	//ambientLight = new THREE.AmbientLight(0xffffff);
 	// シーンに追加
 	scene.add(light);
+	scene.add(light2);
 	//scene.add(ambientLight);
 	
 }
@@ -84,10 +96,10 @@ function render(){
 		const canvas = renderer.domElement;
 		camera.aspect = canvas.clientWidth / canvas.clientHeight;
 		camera.updateProjectionMatrix();
-	  }
+	}
 
-	sphere.rotation.x += 0.001;
-	sphere.rotation.y += 0.001;
+	plane.rotation.x += 0.001;
+	plane.rotation.y += 0.001;
 
 	renderer.render(scene, camera);
 }
