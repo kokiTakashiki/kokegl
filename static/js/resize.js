@@ -76,7 +76,7 @@ var common = {
 		$(".main").css({
 			"font-size": msg.mainFont + "px"
 		});
-		$(".caption").css({
+		$(".title").css({
 			"font-size": msg.capFont + "px"
 		});
 		$(".studyDay").css({
