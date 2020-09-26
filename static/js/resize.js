@@ -27,50 +27,70 @@ var common = {
     resize: ()=>{
 		var ut = navigator.userAgent;
 		// 角度を取得
-		let angle = screen && screen.orientation && screen.orientation.angle;
-		if ( angle === undefined ) {
-		  angle = window.orientation;    // iOS用
-		}
-		console.log(ut);
-		console.log(angle)
+		// let angle = screen && screen.orientation && screen.orientation.angle;
+		// if ( angle === undefined ) {
+		//   angle = window.orientation;    // iOS用
+		// }
+		//console.log(ut);
+		//console.log(angle)
 
 		var msg = {}
 
 		if(ut.indexOf('iPhone') > 0 || ut.indexOf('iPod') > 0 || ut.indexOf('Android') > 0 && ut.indexOf('Mobile') > 0){
-			msg.type = "SmartPhon";
-			msg.mainFont = "48";
-			msg.capFont = "50";
-			msg.canvasSise = $(window).width()*0.8;
-			if(angle == 90){
+			if (window.innerHeight > window.innerWidth) {
+				/* 縦画面時の処理 */
+				console.log("tate")
 				msg.type = "SmartPhon";
-				msg.mainFont = "19";
+				msg.mainFont = "48";
+				msg.capFont = "50";
+				msg.canvasSise = $(window).width()*0.8;
+				msg.twitter = "10";
+				msg.facebook = "7";
+				msg.note = "11";
+			} else {
+				/* 横画面時の処理 */
+				msg.type = "SmartPhon";
+				msg.mainFont = "26";
 				msg.capFont = "26";
-				msg.canvasSise = $(window).height()*0.65;
+				msg.canvasSise = $(window).height()*0.7;
+				msg.twitter = "10";
+				msg.facebook = "7";
+				msg.note = "11";
 			}
+			
 		}else if(ut.indexOf('iPad') > 0 || ut.indexOf('Android') > 0){
-			msg.type = "Tablet";
-			msg.mainFont = "30";
-			msg.capFont = "40";
-			msg.canvasSise = $(window).width()*0.55;
-			if(angle == 90){
-				msg.type = "SmartPhon";
+			if (window.innerHeight > window.innerWidth) {
+				/* 縦画面時の処理 */
+				msg.type = "Tablet";
+				msg.mainFont = "30";
+				msg.capFont = "40";
+				msg.canvasSise = $(window).width()*0.55;
+				msg.twitter = "10";
+				msg.facebook = "7";
+				msg.note = "11";
+			} else {
+				/* 横画面時の処理 */
+				msg.type = "Tablet";
 				msg.mainFont = "26";
 				msg.capFont = "30";
 				msg.canvasSise = $(window).height()*0.6;
+				msg.twitter = "10";
+				msg.facebook = "7";
+				msg.note = "11";
 			}
+			
 		}else{
 			msg.type = "Personal Computer";
 			msg.mainFont = "24";
 			msg.capFont = "30";
 			msg.canvasSise = 600;
+			msg.twitter = "5";
+			msg.facebook = "3.5";
+			msg.note = "5.5";
 		}
 
-		console.log(msg)
+		//console.log(msg)
 
-		
-
-		var winW = window.innerWidth;
-		var winH = window.innerHeight;
 		var $body = $("body");
 		
 		$(".main").css({
@@ -82,6 +102,18 @@ var common = {
 		$(".studyDay").css({
 			"font-size": msg.capFont + "px",
 			"float": "right"
+		});
+		$(".twitter").css({
+			"width": msg.twitter + "%",
+			"height": msg.twitter + "%"
+		});
+		$(".facebook").css({
+			"width": msg.facebook + "%",
+			"height": msg.facebook + "%"
+		});
+		$(".note").css({
+			"width": msg.note + "%",
+			"height": msg.note + "%"
         });
         $(".mycanvas").css({
             "width": msg.canvasSise + "px",
