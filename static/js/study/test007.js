@@ -166,9 +166,9 @@ function render(){
 		camera.updateProjectionMatrix();
 	}
 
-	mesh.rotation.y += 0.003;
+	//mesh.rotation.y += 0.003;
 	//mesh.rotation.y += 0.01;
-	wireMesh.rotation.y += 0.003;
+	//wireMesh.rotation.y += 0.003;
 	//wireMesh.rotation.y += 0.01;
 
 	//plane.rotation.x += 0.01;
