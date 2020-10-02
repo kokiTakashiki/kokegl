@@ -40,7 +40,9 @@ var common = {
 			if (window.innerHeight > window.innerWidth) {
 				/* 縦画面時の処理 */
 				console.log("tate")
-				msg.type = "SmartPhon";
+				msg.type = "SmartPhone";
+				msg.indeximgw = "calc(90% - 20px)";
+				msg.indeximgm = "0 auto";
 				msg.mainFont = "48";
 				msg.capFont = "50";
 				msg.canvasSise = $(window).width()*0.8;
@@ -49,7 +51,9 @@ var common = {
 				msg.note = "11";
 			} else {
 				/* 横画面時の処理 */
-				msg.type = "SmartPhon";
+				msg.type = "SmartPhone";
+				msg.indeximgw = "calc(33.333% - 20px)";
+				msg.indeximgm = "10px 10px 20px 10px";
 				msg.mainFont = "26";
 				msg.capFont = "26";
 				msg.canvasSise = $(window).height()*0.7;
@@ -62,8 +66,10 @@ var common = {
 			if (window.innerHeight > window.innerWidth) {
 				/* 縦画面時の処理 */
 				msg.type = "Tablet";
+				msg.indeximgw = "calc(50% - 20px)";
+				msg.indeximgm = "10px 10px 20px 10px";
 				msg.mainFont = "30";
-				msg.capFont = "40";
+				msg.capFont = "30";
 				msg.canvasSise = $(window).width()*0.55;
 				msg.twitter = "10";
 				msg.facebook = "7";
@@ -71,8 +77,10 @@ var common = {
 			} else {
 				/* 横画面時の処理 */
 				msg.type = "Tablet";
-				msg.mainFont = "26";
-				msg.capFont = "30";
+				msg.indeximgw = "calc(33.333% - 20px)";
+				msg.indeximgm = "10px 10px 20px 10px";
+				msg.mainFont = "20";
+				msg.capFont = "20";
 				msg.canvasSise = $(window).height()*0.6;
 				msg.twitter = "10";
 				msg.facebook = "7";
@@ -81,6 +89,8 @@ var common = {
 			
 		}else{
 			msg.type = "Personal Computer";
+			msg.indeximgw = "calc(33.333% - 20px)";
+			msg.indeximgm = "10px 10px 20px 10px";
 			msg.mainFont = "24";
 			msg.capFont = "30";
 			msg.canvasSise = 600;
@@ -122,6 +132,10 @@ var common = {
         $(".imagebox").css({
             "width": msg.canvasSise + "px",
 			"height": msg.canvasSise + "px"
+		});
+		$(".productArea .product").css({
+			"width": msg.indeximgw,
+			"margin": msg.indeximgm
 		});
 		
 		setTimeout(function(){
