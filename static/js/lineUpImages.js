@@ -5,6 +5,12 @@ $(function() {
 	================================================================*/
 	var allList = [
 		{
+			id: "study202010/test012Canvas",
+			life: "4. October 2020",
+			title: "test012",
+			modalid: "kokegl12"
+		},
+		{
 			id: "study202010/test011Canvas",
 			life: "3. October 2020",
 			title: "test011",
@@ -76,13 +82,6 @@ $(function() {
 	スクリプトはじまり
 	================================================================*/
 	function init() {
-
-		//イベント登録
-		//$(".filter_life select").on("change", onFilterChange);
-		//$(".filter_tag input").on("change", onFilterChange);
-		$(".filter_keyword button").on("click", onFilterChange);
-
-
 		//最初は全て出力
 		refleshHtml(allList);
 	}
@@ -112,46 +111,6 @@ $(function() {
 		$('.productArea .product').css({opacity: 0}).each(function(i){$(this).delay(100 * i).animate({opacity:1}, 300);
 		});
 
-		//検索件数表示
-		//$('.productCntArea').html('<p>' + allList.length + '件中' + list.length + '件を表示しています。</p>');
-	}
-
-	/*================================================================
-	絞り込み条件を変更した時
-	================================================================*/
-	function onFilterChange(e) {
-
-		var filterFncs = [];
-		var result = [];
-
-		/*//セレクトボックスの値を引数に指定した関数filterByLifeをfilterFuncs配列に格納
-		filterFncs.push(
-			function(list) {
-				return filterByLife(list, $('.filter_life select').val());
-			}
-		);
-
-		//チェックボックスの値を引数に指定した関数filterByTagをfilterFuncs配列に格納
-		filterFncs.push(
-			function(list) {
-				return filterByTag(list, $('.filter_tag input:checked'));
-			}
-		);*/
-
-		//キーワードの値を引数に指定した関数filterByKeywordをfilterFuncs配列に格納
-		filterFncs.push(
-			function(list) {
-				return filterByKeyword(list, _.escape($('.filter_keyword input').val()));
-			}
-		);
-
-		//FilterFuncs配列内の関数をバケツリレーみたいに1つずつ実行して結果をresult配列に格納
-		result = _.reduce(filterFncs, function(list, fnc) {
-			return fnc(list);
-		}, allList);
-
-		//絞り込んだ結果を出力
-		refleshHtml(result);
 	}
 
 
