@@ -5,6 +5,12 @@ $(function() {
 	================================================================*/
 	var allList = [
 		{
+			id: "study202010/test013Canvas",
+			life: "5. October 2020",
+			title: "test013",
+			modalid: "kokegl13"
+		},
+		{
 			id: "study202010/test012Canvas",
 			life: "4. October 2020",
 			title: "test012",
