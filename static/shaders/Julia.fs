@@ -12,7 +12,7 @@ void main(void){
     vec2 pos = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y)*0.3;
     vec2 p = vec2(pos.x-0.505,pos.y+0.1);
     
-    float costam = 13000.0;
+    float costam = 53000.0;
     int j = 0;
     vec2 x = vec2(-0.345, 0.654);
     vec2 y = vec2(costam * 0.000005, 0.0);
