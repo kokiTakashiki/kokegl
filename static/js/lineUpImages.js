@@ -5,6 +5,12 @@ $(function() {
 	================================================================*/
 	var allList = [
 		{
+			id: "study202010/test014Canvas",
+			life: "6. October 2020",
+			title: "test014",
+			modalid: "kokegl14"
+		},
+		{
 			id: "study202010/test013Canvas",
 			life: "5. October 2020",
 			title: "test013",
@@ -114,7 +120,7 @@ $(function() {
 
 		//HTML出力（フェードインアニメーションつき）
 		$('.productArea').html(outputHtml);
-		$('.productArea .product').css({opacity: 0}).each(function(i){$(this).delay(100 * i).animate({opacity:1}, 300);
+		$('.productArea .product').css({opacity: 0}).each(function(i){$(this).delay(100 * i).animate({opacity:1}, 0);
 		});
 
 	}
