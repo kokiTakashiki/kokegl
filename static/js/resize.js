@@ -110,8 +110,7 @@ var common = {
 			"font-size": msg.capFont + "px"
 		});
 		$(".studyDay").css({
-			"font-size": msg.capFont + "px",
-			"float": "right"
+			"font-size": msg.capFont + "px"
 		});
 		$(".twitter").css({
 			"width": msg.twitter + "%",

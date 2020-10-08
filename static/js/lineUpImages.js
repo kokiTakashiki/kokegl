@@ -1,9 +1,17 @@
+
+//lineUpImages
 $(function() {
 
 	/*================================================================
 	情報
 	================================================================*/
 	var allList = [
+		{
+			id: "study202010/test016Canvas",
+			life: "8. October 2020",
+			title: "test016",
+			modalid: "kokegl16"
+		},
 		{
 			id: "study202010/test015Canvas",
 			life: "7. October 2020",
@@ -115,7 +123,8 @@ $(function() {
 		if (list.length > 0) {
 			_.each(list, function(line, i) {
 				outputHtml += '<div class="product">';
-				outputHtml += '		<a href="study_page/' + line.title + '.html"><span class="title">' + line.title + '</span></a><span class="studyday">' + line.life + '</span>';
+				outputHtml += '		<a href="study_page/' + line.title + '.html"><span class="title">' + line.title + '</span><br>';
+				outputHtml += '     </a><span class="studyday">' + line.life + '</span>';
 				//画像
 				outputHtml += '	<a href="study_page/' + line.title + '.html"><div class="photo"><img src="static/img/' + line.id + '.png" alt="' + line.title + '" width="100%" height="100%" /></div></a>';
 				outputHtml += '<!--/.product--></div>';

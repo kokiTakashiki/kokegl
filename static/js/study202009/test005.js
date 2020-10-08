@@ -66,7 +66,7 @@ function init(){
 	// 八面体のメッシュ作成
 	// 画像を読み込む
 	loader = new THREE.TextureLoader();
-	texture = loader.load('../static/img/texture/kusagoke.jpg');
+	texture = loader.load('../static/img/texture/kusagokemat.jpg');
 	// マテリアルにテクスチャーを設定
 	material = new THREE.MeshStandardMaterial({
 	  map: texture
