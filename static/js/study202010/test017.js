@@ -5,9 +5,9 @@ alpha: true
 });
 renderer.setClearColor(new THREE.Color(), 0);
 renderer.setSize(640, 480);
-renderer.domElement.style.position = 'absolute';
-renderer.domElement.style.top = '0px';
-renderer.domElement.style.left = '0px';
+//renderer.domElement.style.position = 'absolute';
+renderer.domElement.style.top = '50%';
+renderer.domElement.style.left = '50%';
 document.body.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
