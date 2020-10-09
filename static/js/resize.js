@@ -41,7 +41,7 @@ var common = {
 				/* 縦画面時の処理 */
 				console.log("tate")
 				msg.type = "SmartPhone";
-				msg.indeximgw = "calc(90% - 20px)";
+				msg.indeximgw = "calc(33.333% - 20px)";
 				msg.indeximgm = "0 auto";
 				msg.mainFont = "48";
 				msg.capFont = "50";
@@ -66,7 +66,7 @@ var common = {
 			if (window.innerHeight > window.innerWidth) {
 				/* 縦画面時の処理 */
 				msg.type = "Tablet";
-				msg.indeximgw = "calc(50% - 20px)";
+				msg.indeximgw = "calc(33.333% - 20px)";
 				msg.indeximgm = "10px 10px 20px 10px";
 				msg.mainFont = "30";
 				msg.capFont = "30";
