@@ -7,6 +7,12 @@ $(function() {
 	================================================================*/
 	var allList = [
 		{
+			id: "study202010/test018Canvas",
+			life: "10. October 2020",
+			title: "test018",
+			modalid: "kokegl18"
+		},
+		{
 			id: "study202010/test017Canvas",
 			life: "9. October 2020",
 			title: "test017",
@@ -129,10 +135,10 @@ $(function() {
 		if (list.length > 0) {
 			_.each(list, function(line, i) {
 				outputHtml += '<div class="product">';
-				outputHtml += '		<a href="study_page/' + line.title + '.html"><span class="title">' + line.title + '</span><br>';
+				outputHtml += '		<a href="study_page_test/' + line.title + '.html"><span class="title">' + line.title + '</span><br>';
 				outputHtml += '     </a><span class="studyday">' + line.life + '</span>';
 				//画像
-				outputHtml += '	<a href="study_page/' + line.title + '.html"><div class="photo"><img src="static/img/' + line.id + '.png" alt="' + line.title + '" width="100%" height="100%" /></div></a>';
+				outputHtml += '	<a href="study_page_test/' + line.title + '.html"><div class="photo"><img src="static/img/' + line.id + '.png" alt="' + line.title + '" width="100%" height="100%" /></div></a>';
 				outputHtml += '<!--/.product--></div>';
 			});
 		} else {
