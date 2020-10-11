@@ -56,12 +56,19 @@ function init(){
 
 	
 	var poslist = []
-	for(var i = 0;  i < 20;  i++){
-		for(var j = 0;  j < 20;  j++){
-			poslist.push(new THREE.Vector3(i/2-5,0.0,j/2-5))
+	for(var i = 0;  i < 40;  i++){
+		for(var j = 0;  j < 40;  j++){
+			poslist.push(new THREE.Vector3(i/4-5,0.0,j/4-5))
 		}
 	}
-	console.log(poslist)
+
+	//noise
+	var simplexNoise = new SimplexNoise;
+
+	for ( i = 0; i < poslist.length; i++ ) {
+		var vertex = poslist[ i ];
+		vertex.y = simplexNoise.noise( vertex.x / 5, vertex.z / 5 );
+	}
 
 	for(var a = 0;  a < poslist.length;  a++){
 		var random = Math.ceil( Math.random()*100 )/50;
@@ -76,12 +83,37 @@ function init(){
 		wireMesh = new THREE.Mesh(this.kokeModel(poslist[a]), wire);
 		//scene.add(wireMesh);
 	}
-	
 
-	// 地面を作成
-	// ground = new THREE.GridHelper(300, 10, 0xffffff, 0xffffff);
-	// //plane.position.y = -1;
-	// scene.add(ground);
+	//凸凹テスト
+	/* PlaneGeometry
+		width — Width along the X axis. Default is 1.
+		height — Height along the Y axis. Default is 1.
+		widthSegments — Optional. Default is 1.
+		heightSegments — Optional. Default is 1. */
+	var planegeo = new THREE.PlaneGeometry( 10, 10, 16, 16 );
+
+	for ( i = 0; i < planegeo.vertices.length; i++ ) {
+		var vertex = planegeo.vertices[ i ];
+		vertex.z = simplexNoise.noise( vertex.x / 5, vertex.y / 5 );
+	}
+	var map1 = THREE.ImageUtils.loadTexture( '../static/img/texture/kusagokemat02.jpg' );
+	//(中略)
+	dekobokokoke = new THREE.Mesh(
+		planegeo,
+		new THREE.MeshBasicMaterial( { 
+			map: map1,
+			//wireframe: true
+		 } )
+	);
+
+	dekobokokoke.rotation.x = Math.PI / -2;
+	dekobokokoke.position.x += 10;
+	scene.add( dekobokokoke );
+
+	// GridHelperを作成
+	GridHelper = new THREE.GridHelper(25, 10, 0xffffff, 0xffffff);
+	//plane.position.y = -1;
+	scene.add(GridHelper);
 
 	// new THREE.DirectionalLight(色)
 	light = new THREE.DirectionalLight(0xffffff);
