@@ -42,7 +42,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: '../static/shaders/plane_vertex.vs',
+	    url: '../static/shaders/koke_vertex001.vs',
 	    async: false,
 	    cache: false,
 	    error: function(jqxhr, status, exception) {
@@ -82,7 +82,7 @@ function init(){
 	console.log("vert " + threeVertexShaderText);
 	console.log("frag " + fragmentShaderText);
 	
-    material = new THREE.ShaderMaterial({
+    material = new THREE.RawShaderMaterial({
         uniforms       : uniforms,
         vertexShader   : threeVertexShaderText,
         fragmentShader : fragmentShaderText

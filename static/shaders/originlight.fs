@@ -4,6 +4,9 @@ precision mediump float;
 uniform vec2 resolution;
 uniform float time;
 
+//vUvを取得
+varying vec2 vUv;
+
 #define S(x,y,z) smoothstep(x,y,z)
 
 float light(vec2 uv, vec2 pos, float size) {
@@ -40,9 +43,8 @@ vec3 origin(vec2 uv, vec2 p, float t, vec3 bCol) {
 }
 
 void main(void){
-    vec2 uv = gl_FragCoord.xy / resolution.xy;
-    uv.x -= 0.5;
-    uv.y -= 0.5;
+    //uv座標系で、オブジェクトの中心に原点を設定
+    vec2 uv = -1.0 + 2.0 * vUv;
     
     float t = time*0.00008;
     float sint = sin(t);
@@ -57,7 +59,7 @@ void main(void){
         //色
         vec3 bColPin = vec3(0.2063,1.0,0.3293);
         
-        c = origin(uv, ep, -2.0*sint, bColPin);
+        c = origin(uv, ep, -2.0, bColPin);
         
     }
 
