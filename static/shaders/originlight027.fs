@@ -1,7 +1,6 @@
-//test025
+//test027
 
 precision mediump float;
-uniform vec2 resolution;
 uniform float time;
 
 //vUvを取得
@@ -46,7 +45,7 @@ void main(void){
     //uv座標系で、オブジェクトの中心に原点を設定
     vec2 uv = -1.0 + 2.0 * vUv;
     
-    float t = time*0.00008;
+    float t = time*0.0008;
     float sint = sin(t);
     
     //backbround

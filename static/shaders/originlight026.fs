@@ -1,4 +1,4 @@
-//test025
+//test026
 
 precision mediump float;
 uniform vec2 resolution;
@@ -59,7 +59,7 @@ void main(void){
         //色
         vec3 bColPin = vec3(0.2063,1.0,0.3293);
         
-        c = origin(uv, ep, -2.0+sint, bColPin);
+        c = origin(uv, ep, -2.0, bColPin);
         
     }
 

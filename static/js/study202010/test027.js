@@ -1,9 +1,9 @@
-// test026
+// test027
 
 //画面サイズ
 var canvasWidth  = 600;
 var canvasHeight = 600;
-const canvas = document.querySelector("#test026Canvas")
+const canvas = document.querySelector("#test027Canvas")
 
 //3Dの設定用value
 var renderer, scene, camera;
@@ -32,7 +32,7 @@ renderer = new THREE.WebGLRenderer({canvas});
 renderer.setPixelRatio(window.devicePixelRatio);
 
 //3Dモデル用value
-var geometry, material, plane, time;
+var geometry, material, pertmaterial, plane, time;
 
 //一回だけ呼んで初期化するよー
 init();
@@ -42,9 +42,9 @@ animate();
 //初期化用仕掛けちゃん（ファンクションとかメソッドとか）
 function init(){
 
-	// uniforms = {
-    // 	"time": {type: "f",value: 1.0}
-    // }
+	uniforms = {
+    	"time": {type: "f",value: 1.0}
+    }
     
     // //外部からシェーダを読み込む
 	// var threeVertexShaderText = null, fragmentShaderText = null;
@@ -203,7 +203,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: '../static/shaders/originlight026.fs',
+	    url: '../static/shaders/originlight027.fs',
 	    dataType: 'html',
 	    async: false,
 	    cache: false,
@@ -227,11 +227,7 @@ function init(){
 		blending: THREE.AdditiveBlending,
 		alphaTest: 0.01,
 		depthWrite: false,
-		uniforms: {
-			uTime: {
-			value: 0, // 拡大縮小のアニメーション用に、毎フレームアニメーションループ内で経過時間を渡す
-			},
-		},
+		uniforms: uniforms
 	});
 
 	billboardParticles = new THREE.Mesh(pertgeo, pertmaterial);
@@ -341,12 +337,10 @@ function render(){
 	// required if controls.enableDamping or controls.autoRotate are set to true
 	controls.update();
 
-	//mesh.rotation.y += 0.003;
-	//mesh.rotation.y += 0.01;
-	//wireMesh.rotation.y += 0.003;
-	//wireMesh.rotation.y += 0.01;
-
-	//plane.rotation.x += 0.01;
+	///"performance.now()"で時間をゲット！
+	time = performance.now();
+	//
+	pertmaterial.uniforms.time.value = time;
 
 	renderer.render(scene, camera);
 }
