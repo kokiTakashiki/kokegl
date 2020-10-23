@@ -1,9 +1,9 @@
-// test029
+// test031
 
 //画面サイズ
 var canvasWidth  = 600;
 var canvasHeight = 600;
-const canvas = document.querySelector("#test029Canvas")
+const canvas = document.querySelector("#test031Canvas")
 
 //3Dの設定用value
 var renderer, scene, camera;
@@ -95,11 +95,29 @@ function init(){
     });
 
 	
+	var kokehani = new THREE.Vector2(40,40);//範囲設定　xかけるyで生成数
+	var kokemitu = 2;
+	var kokemargin = new THREE.Vector2(-10,-10)
+	var radius = 15;
+
 	var poslist = []
-	for(var i = 0;  i < 20;  i++){
-		for(var j = 0;  j < 20;  j++){
-			poslist.push(new THREE.Vector3(i/2-5,0.0,j/2-5))
+	for(var i = 0;  i < kokehani.x;  i++){
+		for(var j = 0;  j < kokehani.y;  j++){
+			var cx = i - kokehani.x/2;
+			var cz = j - kokehani.y/2;
+			var dist = Math.sqrt((cx*cx) + (cz*cz))
+			if (dist <= radius) {
+				poslist.push(new THREE.Vector3(i/kokemitu+kokemargin.x,0.0,j/kokemitu+kokemargin.y))
+			}
 		}
+	}
+
+	//noise
+	var simplexNoise = new SimplexNoise;
+
+	for ( i = 0; i < poslist.length; i++ ) {
+		var vertex = poslist[ i ];
+		vertex.y = simplexNoise.noise( vertex.x / 5, vertex.z / 5 );
 	}
 
 	for(var a = 0;  a < poslist.length;  a++){
@@ -109,6 +127,7 @@ function init(){
 		mesh = new THREE.Mesh(this.kokeModel(poslist[a], random), material);
 		mesh.material.side = THREE.DoubleSide;
 		scene.add(mesh);
+		
 	}
 
 	// pertgeo = new THREE.BufferGeometry();
@@ -260,18 +279,30 @@ function init(){
 }
 
 function kokeModel(baseLocation, random){
+	let p = new THREE.Vector2(baseLocation.x,baseLocation.z)
+	let bladeWid = 2
+	let v2d = bladeWid/2
+	let vmhight = baseLocation.y + 1.8
+	let vthight = baseLocation.y + 3.5
+	let angle = random*Math.PI//0.5 90
+    let angleM = (random+0.3)*Math.PI
+    let angleT = (random-0.1*random)*Math.PI
+    let cosAM = new THREE.Vector2(v2d*Math.cos(angleM),-v2d*Math.cos(angleM))
+    let cosAT = new THREE.Vector2(v2d*Math.cos(angleT),-v2d*Math.cos(angleT))
+    let sinAM = new THREE.Vector2(v2d*Math.sin(angleM),-v2d*Math.sin(angleM))
+    let sinAT = new THREE.Vector2(v2d*Math.sin(angleT),-v2d*Math.sin(angleT))
 	// ジオメトリ生成
 	var kokegeo = new THREE.Geometry();
 	// 頂点
 	//base
-	kokegeo.vertices.push(new THREE.Vector3(0.25+baseLocation.x+random, 0+baseLocation.y, 0+baseLocation.z));
-	kokegeo.vertices.push(new THREE.Vector3(-0.25+baseLocation.x+random, 0+baseLocation.y, 0.5+baseLocation.z));
+	kokegeo.vertices.push(new THREE.Vector3((v2d*Math.cos(angle))+p.x, 0.0, (v2d*Math.sin(angle))+p.y));
+	kokegeo.vertices.push(new THREE.Vector3((-v2d*Math.cos(angle))+p.x, 0.0, (-v2d*Math.sin(angle))+p.y));
 	//mid
-	kokegeo.vertices.push(new THREE.Vector3(0.25+baseLocation.x+random, 1.8+baseLocation.y, -1.5+baseLocation.z+random));
-	kokegeo.vertices.push(new THREE.Vector3(-0.25+baseLocation.x+random, 1.8+baseLocation.y, -0.5+baseLocation.z+random));
+	kokegeo.vertices.push(new THREE.Vector3(cosAM.x+p.x, vmhight, sinAM.x+p.y));
+	kokegeo.vertices.push(new THREE.Vector3(cosAM.y+p.x, vmhight, sinAM.y+p.y));
 	//top
-	kokegeo.vertices.push(new THREE.Vector3(0.25+baseLocation.x+random, 3.5+baseLocation.y, -1.5+baseLocation.z+random));
-	kokegeo.vertices.push(new THREE.Vector3(-0.25+baseLocation.x+random, 3.5+baseLocation.y, -1.5+baseLocation.z+random));
+	kokegeo.vertices.push(new THREE.Vector3(cosAT.x+p.x, vthight, sinAT.x+p.y));
+	kokegeo.vertices.push(new THREE.Vector3(cosAT.y+p.x, vthight, sinAT.y+p.y));
  
 	// 面
 	kokegeo.faces.push(new THREE.Face3( 0, 2, 1));
