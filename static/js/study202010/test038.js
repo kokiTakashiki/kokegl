@@ -91,8 +91,8 @@ function init(){
 	geometry2.faces.push(new THREE.Face3( 3, 1, 2));
  
 	// 法線ベクトルの自動計算
-	//geometry2.computeFaceNormals();
-	//geometry2.computeVertexNormals();
+	geometry2.computeFaceNormals();
+	geometry2.computeVertexNormals();
 
 	geometry2.faceVertexUvs[0].push([
 		new THREE.Vector2(1.0, 1.0),new THREE.Vector2(0.0, 0.0),new THREE.Vector2(1.0, 0.0)
