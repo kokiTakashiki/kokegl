@@ -7,6 +7,12 @@ $(function() {
 	================================================================*/
 	var allList = [
 		{
+			id: "study202010/test041Canvas",
+			life: "3. November 2020",
+			title: "test041",
+			modalid: "kokegl41"
+		},
+		{
 			id: "study202010/test040Canvas",
 			life: "2. November 2020",
 			title: "test040",
