@@ -51,7 +51,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: '../static/shaders/koke_vertex001.vs',
+	    url: '../../static/shaders/koke_vertex001.vs',
 	    async: false,
 	    cache: false,
 	    error: function(jqxhr, status, exception) {
@@ -70,7 +70,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: '../static/shaders/koke_frag001.fs',
+	    url: '../../static/shaders/koke_frag001.fs',
 	    dataType: 'html',
 	    async: false,
 	    cache: false,

@@ -44,7 +44,7 @@ function init(){
 
 	// 画像を読み込む
 	loader = new THREE.TextureLoader();
-	texture = loader.load('../static/img/texture/kusagoke.png');
+	texture = loader.load('../../static/img/texture/kusagoke.png');
 	// マテリアルにテクスチャーを設定
 	material = new THREE.MeshStandardMaterial({
 	  map: texture,
@@ -90,7 +90,7 @@ function init(){
 		var vertex = planegeo.vertices[ i ];
 		vertex.z = simplexNoise.noise( vertex.x / 5, vertex.y / 5 );
 	}
-	var map1 = THREE.ImageUtils.loadTexture( '../static/img/texture/kusagokemat02.jpg' );
+	var map1 = THREE.ImageUtils.loadTexture( '../../static/img/texture/kusagokemat02.jpg' );
 	//(中略)
 	dekobokokoke = new THREE.Mesh(
 		planegeo,

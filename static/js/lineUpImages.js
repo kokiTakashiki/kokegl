@@ -7,262 +7,268 @@ $(function() {
 	================================================================*/
 	var allList = [
 		{
-			id: "study202010/test043Canvas",
+			id: "study202011/test044Canvas",
+			life: "7. November 2020",
+			title: "test044",
+			modalid: "study202011/test044"
+		},
+		{
+			id: "study202011/test043Canvas",
 			life: "5. November 2020",
 			title: "test043",
-			modalid: "kokegl43"
+			modalid: "study202011/test043"
 		},
 		{
-			id: "study202010/test042Canvas",
+			id: "study202011/test042Canvas",
 			life: "4. November 2020",
 			title: "test042",
-			modalid: "kokegl42"
+			modalid: "study202011/test042"
 		},
 		{
-			id: "study202010/test041Canvas",
+			id: "study202011/test041Canvas",
 			life: "3. November 2020",
 			title: "test041",
-			modalid: "kokegl41"
+			modalid: "study202011/test041"
 		},
 		{
-			id: "study202010/test040Canvas",
+			id: "study202011/test040Canvas",
 			life: "2. November 2020",
 			title: "test040",
-			modalid: "kokegl40"
+			modalid: "study202011/test040"
 		},
 		{
 			id: "study202010/test039Canvas",
 			life: "31. October 2020",
 			title: "test039",
-			modalid: "kokegl39"
+			modalid: "study202010/test039"
 		},
 		{
 			id: "study202010/test038Canvas",
 			life: "30. October 2020",
 			title: "test038",
-			modalid: "kokegl38"
+			modalid: "study202010/test038"
 		},
 		{
 			id: "study202010/test037Canvas",
 			life: "29. October 2020",
 			title: "test037",
-			modalid: "kokegl37"
+			modalid: "study202010/test037"
 		},
 		{
 			id: "study202010/test036Canvas",
 			life: "28. October 2020",
 			title: "test036",
-			modalid: "kokegl36"
+			modalid: "study202010/test036"
 		},
 		{
 			id: "study202010/test035Canvas",
 			life: "27. October 2020",
 			title: "test035",
-			modalid: "kokegl35"
+			modalid: "study202010/test035"
 		},
 		{
 			id: "study202010/test034Canvas",
 			life: "26. October 2020",
 			title: "test034",
-			modalid: "kokegl34"
+			modalid: "study202010/test034"
 		},
 		{
 			id: "study202010/test033Canvas",
 			life: "25. October 2020",
 			title: "test033",
-			modalid: "kokegl33"
+			modalid: "study202010/test033"
 		},
 		{
 			id: "study202010/test032Canvas",
 			life: "24. October 2020",
 			title: "test032",
-			modalid: "kokegl32"
+			modalid: "study202010/test032"
 		},
 		{
 			id: "study202010/test031Canvas",
 			life: "23. October 2020",
 			title: "test031",
-			modalid: "kokegl31"
+			modalid: "study202010/test031"
 		},
 		{
 			id: "study202010/test030Canvas",
 			life: "22. October 2020",
 			title: "test030",
-			modalid: "kokegl30"
+			modalid: "study202010/test030"
 		},
 		{
 			id: "study202010/test029Canvas",
 			life: "21. October 2020",
 			title: "test029",
-			modalid: "kokegl29"
+			modalid: "study202010/test029"
 		},
 		{
 			id: "study202010/test028Canvas",
 			life: "20. October 2020",
 			title: "test028",
-			modalid: "kokegl28"
+			modalid: "study202010/test028"
 		},
 		{
 			id: "study202010/test027Canvas",
 			life: "19. October 2020",
 			title: "test027",
-			modalid: "kokegl27"
+			modalid: "study202010/test027"
 		},
 		{
 			id: "study202010/test026Canvas",
 			life: "18. October 2020",
 			title: "test026",
-			modalid: "kokegl26"
+			modalid: "study202010/test026"
 		},
 		{
 			id: "study202010/test025Canvas",
 			life: "17. October 2020",
 			title: "test025",
-			modalid: "kokegl25"
+			modalid: "study202010/test025"
 		},
 		{
 			id: "study202010/test024Canvas",
 			life: "16. October 2020",
 			title: "test024",
-			modalid: "kokegl24"
+			modalid: "study202010/test024"
 		},
 		{
 			id: "study202010/test023Canvas",
 			life: "15. October 2020",
 			title: "test023",
-			modalid: "kokegl23"
+			modalid: "study202010/test023"
 		},
 		{
 			id: "study202010/test022Canvas",
 			life: "14. October 2020",
 			title: "test022",
-			modalid: "kokegl22"
+			modalid: "study202010/test022"
 		},
 		{
 			id: "study202010/test021Canvas",
 			life: "13. October 2020",
 			title: "test021",
-			modalid: "kokegl21"
+			modalid: "study202010/test021"
 		},
 		{
 			id: "study202010/test020Canvas",
 			life: "12. October 2020",
 			title: "test020",
-			modalid: "kokegl20"
+			modalid: "study202010/test020"
 		},
 		{
 			id: "study202010/test019Canvas",
 			life: "11. October 2020",
 			title: "test019",
-			modalid: "kokegl19"
+			modalid: "study202010/test019"
 		},
 		{
 			id: "study202010/test018Canvas",
 			life: "10. October 2020",
 			title: "test018",
-			modalid: "kokegl18"
+			modalid: "study202010/test018"
 		},
 		{
 			id: "study202010/test017Canvas",
 			life: "9. October 2020",
 			title: "test017",
-			modalid: "kokegl17"
+			modalid: "study202010/test017"
 		},
 		{
 			id: "study202010/test016Canvas",
 			life: "8. October 2020",
 			title: "test016",
-			modalid: "kokegl16"
+			modalid: "study202010/test016"
 		},
 		{
 			id: "study202010/test015Canvas",
 			life: "7. October 2020",
 			title: "test015",
-			modalid: "kokegl15"
+			modalid: "study202010/test015"
 		},
 		{
 			id: "study202010/test014Canvas",
 			life: "6. October 2020",
 			title: "test014",
-			modalid: "kokegl14"
+			modalid: "study202010/test014"
 		},
 		{
 			id: "study202010/test013Canvas",
 			life: "5. October 2020",
 			title: "test013",
-			modalid: "kokegl13"
+			modalid: "study202010/test013"
 		},
 		{
 			id: "study202010/test012Canvas",
 			life: "4. October 2020",
 			title: "test012",
-			modalid: "kokegl12"
+			modalid: "study202010/test012"
 		},
 		{
 			id: "study202010/test011Canvas",
 			life: "3. October 2020",
 			title: "test011",
-			modalid: "kokegl11"
+			modalid: "study202010/test011"
 		},
 		{
 			id: "study202010/test010Canvas",
 			life: "2. October 2020",
 			title: "test010",
-			modalid: "kokegl10"
+			modalid: "study202010/test010"
 		},
 		{
 			id: "study202010/test009Canvas",
 			life: "1. October 2020",
 			title: "test009",
-			modalid: "kokegl9"
+			modalid: "study202010/test009"
 		},
 		{
 			id: "study202009/test008Canvas",
 			life: "30. September 2020",
 			title: "test008",
-			modalid: "kokegl8"
+			modalid: "study202009/test008"
 		},
 		{
 			id: "study202009/test007Canvas",
 			life: "29. September 2020",
 			title: "test007",
-			modalid: "kokegl7"
+			modalid: "study202009/test007"
 		},
 		{
 			id: "study202009/test006Canvas",
 			life: "28. September 2020",
 			title: "test006",
-			modalid: "kokegl6"
+			modalid: "study202009/test006"
 		},
 		{
 			id: "study202009/test005Canvas",
 			life: "27. September 2020",
 			title: "test005",
-			modalid: "kokegl5"
+			modalid: "study202009/test005"
 		},
 		{
 			id: "study202009/test004Canvas",
 			life: "26. September 2020",
 			title: "test004",
-			modalid: "kokegl4"
+			modalid: "study202009/test004"
 		},
 		{
 			id: "study202009/test003Canvas",
 			life: "25. September 2020",
 			title: "test003",
-			modalid: "kokegl3"
+			modalid: "study202009/test003"
 		},
 		{
 			id: "study202009/test002Canvas",
 			life: "24. September 2020",
 			title: "test002",
-			modalid: "kokegl2"
+			modalid: "study202009/test002"
 		},
 		{
 			id: "study202009/test001Canvas",
 			life: "24. September 2020",
 			title: "test001",
-			modalid: "kokegl1"
+			modalid: "study202009/test001"
 		},
 	];
 
@@ -285,10 +291,10 @@ $(function() {
 		if (list.length > 0) {
 			_.each(list, function(line, i) {
 				outputHtml += '<div class="product">';
-				outputHtml += '		<a href="study_page_test/' + line.title + '.html"><span class="title">' + line.title + '</span><br>';
+				outputHtml += '		<a href="study_page/' + line.modalid + '.html"><span class="title">' + line.title + '</span><br>';
 				outputHtml += '     </a><span class="studyday">' + line.life + '</span>';
 				//画像
-				outputHtml += '	<a href="study_page_test/' + line.title + '.html"><div class="photo"><img src="static/img/' + line.id + '.png" alt="' + line.title + '" width="100%" height="100%" /></div></a>';
+				outputHtml += '	<a href="study_page/' + line.modalid + '.html"><div class="photo"><img src="static/img/' + line.id + '.png" alt="' + line.title + '" width="100%" height="100%" /></div></a>';
 				outputHtml += '<!--/.product--></div>';
 			});
 		} else {

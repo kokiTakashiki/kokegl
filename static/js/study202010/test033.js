@@ -39,7 +39,7 @@ function init(){
 	
 	// 画像を読み込む
 	loader = new THREE.TextureLoader();
-	texture = loader.load('../static/img/texture/maybe_umasugigoke/maybe_umasugigoke04.jpeg');
+	texture = loader.load('../../static/img/texture/maybe_umasugigoke/maybe_umasugigoke04.jpeg');
 	// マテリアルにテクスチャーを設定
 	material = new THREE.MeshStandardMaterial({
 	  map: texture

@@ -53,7 +53,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: '../static/shaders/koke_vertex001.vs',
+	    url: '../../static/shaders/koke_vertex001.vs',
 	    async: false,
 	    cache: false,
 	    error: function(jqxhr, status, exception) {
@@ -68,7 +68,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: '../static/shaders/originlight.fs',
+	    url: '../../static/shaders/originlight.fs',
 	    dataType: 'html',
 	    async: false,
 	    cache: false,
@@ -209,7 +209,7 @@ function init(){
 	
 	// $.ajax({
 	//     async: false,
-	//     url: '../static/shaders/pert_vertex.vs',
+	//     url: '../../static/shaders/pert_vertex.vs',
 	//     async: false,
 	//     cache: false,
 	//     error: function(jqxhr, status, exception) {
@@ -224,7 +224,7 @@ function init(){
 	
 	// $.ajax({
 	//     async: false,
-	//     url: '../static/shaders/originlight028.fs',
+	//     url: '../../static/shaders/originlight028.fs',
 	//     dataType: 'html',
 	//     async: false,
 	//     cache: false,

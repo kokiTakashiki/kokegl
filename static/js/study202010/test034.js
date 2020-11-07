@@ -122,7 +122,7 @@ function init(){
 	// 八面体のメッシュ作成
 	// 画像を読み込む
 	loader = new THREE.TextureLoader();
-	texture = loader.load('../static/img/texture/hari02.png');
+	texture = loader.load('../../static/img/texture/hari02.png');
 	// マテリアルにテクスチャーを設定
 	material = new THREE.MeshStandardMaterial({
 	  	map: texture,

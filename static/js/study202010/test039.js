@@ -43,7 +43,7 @@ function init(){
 
 	// 画像を読み込む
 	loader = new THREE.TextureLoader();
-	texture = loader.load('../static/img/texture/umasugigoke_modoki01.png');
+	texture = loader.load('../../static/img/texture/umasugigoke_modoki01.png');
 	// マテリアルにテクスチャーを設定
 	material = new THREE.MeshStandardMaterial({
 	  map: texture,
@@ -53,7 +53,7 @@ function init(){
   		depthWrite: false
 	});
 	loader2 = new THREE.TextureLoader();
-	texture2 = loader2.load('../static/img/texture/umasugigoke_modoki02.png');
+	texture2 = loader2.load('../../static/img/texture/umasugigoke_modoki02.png');
 	// マテリアルにテクスチャーを設定
 	material2 = new THREE.MeshStandardMaterial({
 	  map: texture2,

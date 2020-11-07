@@ -52,7 +52,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: '../static/shaders/plane_vertex.vs',
+	    url: '../../static/shaders/plane_vertex.vs',
 	    async: false,
 	    cache: false,
 	    error: function(jqxhr, status, exception) {
@@ -71,7 +71,7 @@ function init(){
 	
 	$.ajax({
 	    async: false,
-	    url: '../static/shaders/Julia.fs',
+	    url: '../../static/shaders/Julia.fs',
 	    dataType: 'html',
 	    async: false,
 	    cache: false,

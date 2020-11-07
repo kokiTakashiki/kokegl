@@ -40,7 +40,7 @@ function init(){
 	
 	// 画像を読み込む
 	loader = new THREE.TextureLoader();
-	texture = loader.load('../static/img/texture/kusagokemat.jpg');
+	texture = loader.load('../../static/img/texture/kusagokemat.jpg');
 	// マテリアルにテクスチャーを設定
 	material = new THREE.MeshStandardMaterial({
 	  map: texture

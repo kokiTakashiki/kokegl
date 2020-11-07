@@ -205,7 +205,7 @@ function init(){
     
     // 画像を読み込む
 	loader = new THREE.TextureLoader();
-	texture = loader.load('../static/img/texture/kusagoke.png');
+	texture = loader.load('../../static/img/texture/kusagoke.png');
 	// マテリアルにテクスチャーを設定
 	material = new THREE.MeshStandardMaterial({
 	  map: texture,
@@ -333,7 +333,7 @@ function init(){
 	
 	// $.ajax({
 	//     async: false,
-	//     url: '../static/shaders/pert_vertex.vs',
+	//     url: '../../static/shaders/pert_vertex.vs',
 	//     async: false,
 	//     cache: false,
 	//     error: function(jqxhr, status, exception) {
@@ -348,7 +348,7 @@ function init(){
 	
 	// $.ajax({
 	//     async: false,
-	//     url: '../static/shaders/originlight028.fs',
+	//     url: '../../static/shaders/originlight028.fs',
 	//     dataType: 'html',
 	//     async: false,
 	//     cache: false,

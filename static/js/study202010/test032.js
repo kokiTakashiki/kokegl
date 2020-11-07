@@ -100,7 +100,7 @@ $(function() {
 			_.each(list, function(line, i) {
 				outputHtml += '<div class="product">';
 				//画像
-				outputHtml += '	<div class="photo"><img src="../static/img/' + line.id + '.jpeg" alt="' + line.title + '" width="100%" height="100%" /></div>';
+				outputHtml += '	<div class="photo"><img src="../../static/img/' + line.id + '.jpeg" alt="' + line.title + '" width="100%" height="100%" /></div>';
 				outputHtml += '<!--/.product--></div>';
 			});
 		} else {
