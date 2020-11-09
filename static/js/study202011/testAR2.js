@@ -1,41 +1,43 @@
+// testAR
 
-const renderer = new THREE.WebGLRenderer({
-	antialias: true,
-	alpha: true
-});
-renderer.setClearColor(new THREE.Color(), 0);
-renderer.setSize(600, 600);
-renderer.domElement.style.position = 'absolute';
-renderer.domElement.style.top = '0px';
-renderer.domElement.style.left = '0px';
-document.body.appendChild(renderer.domElement);
+//画面サイズ
+var canvasWidth  = 600;
+var canvasHeight = 600;
+const canvas = document.querySelector("#testARCanvas")
 
-const scene = new THREE.Scene();
-scene.visible = false;
-const camera = new THREE.Camera();
-scene.add(camera);
+//3Dの設定用value
+var renderer, scene, camera;
 
+scene = new THREE.Scene();
+
+// パースペクティブ
+// new THREE.PerspectiveCamera(画角, アスペクト比, 描画開始距離, 描画終了距離)
+// camera = new THREE.PerspectiveCamera(
+// 	45,
+// 	canvasWidth / canvasHeight,
+// 	1,
+// 	10000
+//   );
+//   camera.position.set(0, 0, +1000);
+//   camera.position.z = 19*1;
+//   camera.position.y = 15*1.5;
+//   camera.position.x = 0;
+camera = new THREE.Camera();
+
+// 4-2. camera controls
+// var controls = new THREE.OrbitControls(camera, canvas);
+// controls.enableDamping = true;
+
+renderer = new THREE.WebGLRenderer({alpha: true});
+renderer.setPixelRatio(window.devicePixelRatio);
+
+//3Dモデル用value
+var kokegeo, material, material2, plane, time;
+
+//AR
 const arToolkitSource = new THREEx.ArToolkitSource({
 	sourceType: 'webcam'
 });
-
-arToolkitSource.init(() => {
-	setTimeout(() => {
-		onResize();
-	}, 2000);
-});
-
-addEventListener('resize', () => {
-	onResize();
-});
-
-function onResize() {
-	arToolkitSource.onResizeElement();
-	arToolkitSource.copyElementSizeTo(renderer.domElement);
-	if (arToolkitContext.arController !== null) {
-		arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas);
-	}
-};
 
 const arToolkitContext = new THREEx.ArToolkitContext({
 	cameraParametersUrl: '../../static/data/camera_para.dat',
@@ -53,15 +55,10 @@ const arMarkerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
 	changeMatrixMode: 'cameraTransformMatrix'
 });
 
-// const mesh = new THREE.Mesh(
-// 	new THREE.CubeGeometry(1, 1, 1),
-// 	new THREE.MeshNormalMaterial(),
-// );
-// mesh.position.y = 1.0;
-// scene.add(mesh);
-
 //一回だけ呼んで初期化するよー
 init();
+//毎回呼んでアニメーションするよー
+animate();
 
 //初期化用仕掛けちゃん（ファンクションとかメソッドとか）
 function init(){
@@ -241,10 +238,10 @@ function kokeModel3(baseLocation, random){
 	// ジオメトリ生成
 	var kokegeo = new THREE.Geometry();
 	// 頂点
-	kokegeo.vertices.push(new THREE.Vector3(v2d*cosAM+p.x, hight, v2d*sinAM+p.y));//0
-	kokegeo.vertices.push(new THREE.Vector3(-v2d*sinAM+p.x, hight, v2d*cosAM+p.y));//1
-	kokegeo.vertices.push(new THREE.Vector3(v2d*cosAM+p.x, hight, -v2d*sinAM+p.y));//2
-	kokegeo.vertices.push(new THREE.Vector3(-v2d*sinAM+p.x, hight, -v2d*cosAM+p.y));//3
+	kokegeo.vertices.push(new THREE.Vector3(1*cosAM+p.x, hight, 1*sinAM+p.y));//0
+	kokegeo.vertices.push(new THREE.Vector3(-1*sinAM+p.x, hight, 1*cosAM+p.y));//1
+	kokegeo.vertices.push(new THREE.Vector3(1*cosAM+p.x, hight, -1*sinAM+p.y));//2
+	kokegeo.vertices.push(new THREE.Vector3(-1*sinAM+p.x, hight, -1*cosAM+p.y));//3
 
 	// 面
 	kokegeo.faces.push(new THREE.Face3( 2, 1, 0));
@@ -265,15 +262,51 @@ function kokeModel3(baseLocation, random){
 	return kokegeo;
 }
 
-//const clock = new THREE.Clock();
-requestAnimationFrame(function animate(){
-	requestAnimationFrame(animate);
+//マテリアル用アニメーション用仕掛けちゃん
+function animate(){
+	window.requestAnimationFrame(animate);
+	render();
+}
+
+function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
+
+//レンダリング用仕掛けちゃん
+function render(){
+
+	if (resizeRendererToDisplaySize(renderer)) {
+		const canvas = renderer.domElement;
+		camera.aspect = canvas.clientWidth / canvas.clientHeight;
+		camera.updateProjectionMatrix();
+	}
+
+	//AR
 	if (arToolkitSource.ready) {
 		arToolkitContext.update(arToolkitSource.domElement);
 		scene.visible = camera.visible;
 	}
-	//const delta = clock.getDelta();
-	//mesh.rotation.x += delta * 1.0;
-	//mesh.rotation.y += delta * 1.5; 
+
+	// required if controls.enableDamping or controls.autoRotate are set to true
+	//controls.update();
+
+	//mesh.rotation.y += 0.003;
+	//mesh.rotation.y += 0.01;
+	//wireMesh.rotation.y += 0.003;
+	//wireMesh.rotation.y += 0.01;
+
+	//plane.rotation.x += 0.01;
+	///"performance.now()"で時間をゲット！
+	time = performance.now()*0.0001;
+	material.roughness = Math.sin(time);
+	material2.roughness = Math.sin(time);
+
 	renderer.render(scene, camera);
-});
+}
