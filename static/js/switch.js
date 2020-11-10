@@ -18,13 +18,15 @@ $(document).ready(function(){
     var outputHtml = '';
 	function onoff(){
 		if($("#demo_stage").hasClass("act")){
+			var page = document.getElementById('demo_stage').title//$("#demo_stage").title;
 			// $("#demo_val").text('ON');
             // $("#demo_val").addClass("act");
-			window.location.href = '../../study_page/study202011/test045AR.html';
+			window.location.href = '../../study_page/'+ page +'.html';
 		}else{
+			var page = document.getElementById('demo_stage').title//$("#demo_stage").title;
 			// $("#demo_val").text('OFF');
             // $("#demo_val").removeClass("act");
-			window.location.href = '../../study_page/study202011/test045.html';
+			window.location.href = '../../study_page/'+ page +'.html';
 		}
 	}
 });
