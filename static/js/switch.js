@@ -20,17 +20,11 @@ $(document).ready(function(){
 		if($("#demo_stage").hasClass("act")){
 			// $("#demo_val").text('ON');
             // $("#demo_val").addClass("act");
-			//window.location.href = '/study_page/study202011/test045AR.html';
-			var a = document.createElement('a');
-			a.href = "/study_page/study202011/test045AR.html";
-			a.click();
+			window.location.href = '../study202011/test045AR.html';
 		}else{
 			// $("#demo_val").text('OFF');
             // $("#demo_val").removeClass("act");
-			//window.location.href = '/study_page/study202011/test045.html';
-			var a = document.createElement('a');
-			a.href = "/study_page/study202011/test045.html";
-			a.click();
+			window.location.href = '../study202011/test045.html';
 		}
 	}
 });
