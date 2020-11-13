@@ -6,14 +6,14 @@ $(document).ready(function(){
 		onoff();
 	});
 
-	$(window).keydown(function (e) {
-		if(e.keyCode=='39'){
-			$("#demo_stage").addClass("act");
-		}else if(e.keyCode=='37'){
-			$("#demo_stage").removeClass("act");
-		}
-		onoff();
-	});
+	// $(window).keydown(function (e) {
+	// 	if(e.keyCode=='39'){
+	// 		$("#demo_stage").addClass("act");
+	// 	}else if(e.keyCode=='37'){
+	// 		$("#demo_stage").removeClass("act");
+	// 	}
+	// 	onoff();
+	// });
 
     var outputHtml = '';
 	function onoff(){
